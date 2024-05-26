@@ -16,6 +16,10 @@ import random
 # - Consistent animal emojis per file per user session
 # - System instructions recitation check on GCF endpoint
 
+# AUTHENTICATED USER CHECK
+
+st.write(st.experimental_user)
+
 # GLOBALS
 
 vertexai.init(project=st.secrets['GCP_GLOBALS']['project'],
