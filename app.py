@@ -176,7 +176,7 @@ with st.sidebar:
 st.write('\n\n')
 
 with st.expander(label='Privacy Policy'):
-    components.html(open('pages/privacy.html', 'r').read(), height=500)
+    components.html(open('pages/privacy.html', 'r').read(), height=500, scrolling=True)
 
     
 
