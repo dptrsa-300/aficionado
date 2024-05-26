@@ -115,7 +115,7 @@ st.write('<h1>Hello, Audit <span style="color:#ce00a2ff;">Aficionado</span></h1>
 st.write(f'Logged in as <span style="background-color:#fff727ff;"> **{st.session_state["username"]}** </span>', unsafe_allow_html=True)
 
 st.markdown('**Try a Suggested Question**')
-col1, col2, col3 = st.columns(4)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     if st.button(f'###### *{st.session_state["choices"][0]}*', use_container_width=True):
