@@ -7,8 +7,10 @@ import vertexai
 import json
 import random
 
+# AUTHENTICATION FALLBACK
+
 if not st.experimental_user:
-    st.write('UNAUTHENTICATED')
+    st.write('**UNAUTHENTICATED**')
     st.stop()
 
 # - Maybe also move EXAMPLES to st.secrets?
