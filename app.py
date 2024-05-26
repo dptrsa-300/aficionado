@@ -170,5 +170,6 @@ with st.sidebar:
     
     if st.button(label='**Delete Workspace Files**', use_container_width=True, on_click=workspace_files([])):
         delete_all_blobs(st.session_state['username'])
+        st.rerun()
 
  
