@@ -7,7 +7,9 @@ import vertexai
 import json
 import random
 
-# TODOs
+if not st.experimental_user:
+    st.write('UNAUTHENTICATED')
+    st.stop()
 
 # - Maybe also move EXAMPLES to st.secrets?
 # - Maybe daily (12-hour? 1-hour?) cache for the same user, workspace file set + question?
