@@ -86,8 +86,8 @@ if 'username' not in st.session_state:
 if 'workspace_files' not in st.session_state:
     st.session_state['workspace_files'] = list_blobs(st.session_state['username'])
 if 'choices' not in st.session_state:
-    mask = random.sample(range(len(EXAMPLES)), 4)
-    st.session_state['choices'] = [EXAMPLES[mask[0]], EXAMPLES[mask[1]], EXAMPLES[mask[2]], EXAMPLES[mask[3]]]
+    mask = random.sample(range(len(EXAMPLES)), 3)
+    st.session_state['choices'] = [EXAMPLES[mask[0]], EXAMPLES[mask[1]], EXAMPLES[mask[2]]]
 if 'question' not in st.session_state:
     st.session_state['question'] = ''
 if 'response' not in st.session_state:
@@ -108,14 +108,13 @@ def question(text):
 # MAIN APPLICATION FLOW
 
 st.set_page_config(page_title='Aficionado: Your Always-On Audit Assistant',
-                   page_icon='assure_ai_logo.PNG',
-                   layout='wide')
+                   page_icon='assure_ai_logo.PNG')
 
 st.write('<h1>Hello, Audit <span style="color:#ce00a2ff;">Aficionado</span></h1>', unsafe_allow_html=True)
 st.write(f'Logged in as <span style="background-color:#fff727ff;"> **{st.session_state["username"]}** </span>', unsafe_allow_html=True)
 
 st.markdown('**Try a Suggested Question**')
-col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3 = st.columns(3)
 
 with col1:
     if st.button(f'###### *{st.session_state["choices"][0]}*', use_container_width=True):
@@ -126,9 +125,6 @@ with col2:
 with col3:
     if st.button(f'###### *{st.session_state["choices"][2]}*', use_container_width=True):
         question(st.session_state["choices"][2])
-with col4:
-    if st.button(f'###### *{st.session_state["choices"][3]}*', use_container_width=True):
-        question(st.session_state["choices"][3])
 
 st.markdown('**Or Ask Your Own**')
 task = st.text_area(label='', label_visibility='collapsed', value=st.session_state['question'])
