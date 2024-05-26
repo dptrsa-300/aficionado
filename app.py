@@ -86,7 +86,7 @@ if 'username' not in st.session_state:
 if 'workspace_files' not in st.session_state:
     st.session_state['workspace_files'] = list_blobs(st.session_state['username'])
 if 'choices' not in st.session_state:
-    mask = random.sample(range(len(EXAMPLES)), 3)
+    mask = random.sample(range(len(EXAMPLES)), 4)
     st.session_state['choices'] = [EXAMPLES[mask[0]], EXAMPLES[mask[1]], EXAMPLES[mask[2]]]
 if 'question' not in st.session_state:
     st.session_state['question'] = ''
