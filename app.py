@@ -176,7 +176,7 @@ with st.sidebar:
 st.write('\n\n')
 
 with st.expander(label='Privacy Policy'):
-    components.iframe("privacy.html", height=500)
+    components.iframe("pages/privacy.html", height=500)
 
     
 
