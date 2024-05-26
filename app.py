@@ -108,7 +108,8 @@ def question(text):
 # MAIN APPLICATION FLOW
 
 st.set_page_config(page_title='Aficionado: Your Always-On Audit Assistant',
-                   page_icon='assure_ai_logo.PNG')
+                   page_icon='assure_ai_logo.PNG',
+                   layout='wide')
 
 st.write('<h1>Hello, Audit <span style="color:#ce00a2ff;">Aficionado</span></h1>', unsafe_allow_html=True)
 st.write(f'Logged in as <span style="background-color:#fff727ff;"> **{st.session_state["username"]}** </span>', unsafe_allow_html=True)
