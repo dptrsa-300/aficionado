@@ -49,6 +49,8 @@ EXAMPLES = {0: "Write a concise bulleted list of key controls based on the provi
             14: "If this process had an animal mascot, what would it be and why? Use emojis.",
             15: "What overrides or circumvention methods are mentioned in the documents?",
             16: "What is the most frequent term used on each page of the document?"}
+EXAMPLE_FILES = ["/examples/P2P Common Key Controls.pdf",
+                 "/examples/Cornell Purchase Order Process Narrative.pdf"]
 
 # HELPERS
 
@@ -78,6 +80,13 @@ def list_blobs(username):
     for blob in blobs:
         res.append(blob.name.replace(username + '/', ''))
     return res
+
+
+def clone_example_blobs(username):
+    for ex in EXAMPLE_FILES:
+        source_blob = BUCKET.blob(ex)
+        destination_blob = BUCKET.blob(username + '/' + ex.split('/')[-1])
+        destination_blob.rewrite(source_blob)
 
 
 # SESSION STATE
@@ -173,8 +182,10 @@ with st.sidebar:
         delete_all_blobs(st.session_state['username'])
         st.rerun()
 
-    st.button(label='**Clone Example Files into Workspace**', use_container_width=True)
-
+    if st.button(label='**Clone Example Files into Workspace**', use_container_width=True, on_click=workspace_files(EXAMPLE_FILES)):
+        clone_example_blobs(st.session_state['username'])
+        st.rerun()
+        
 st.write('\n\n')
 
 with st.expander(label='Privacy Policy'):
