@@ -107,7 +107,7 @@ def workspace_files(fnames):
     if fnames == []:
         st.session_state['workspace_files'] = fnames
     else:
-        if type(fname[0]) == str:
+        if type(fnames[0]) == str:
             st.session_state['workspace_files'].extend(fnames)
         else:
             st.session_state['workspace_files'].extend([i.name for i in fnames])
