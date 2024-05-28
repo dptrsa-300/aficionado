@@ -173,7 +173,7 @@ with st.sidebar:
         delete_all_blobs(st.session_state['username'])
         st.rerun()
 
-    st.button(label='Clone Example Files into Workspace', use_container_width=True)
+    st.button(label='**Clone Example Files into Workspace**', use_container_width=True)
 
 st.write('\n\n')
 
