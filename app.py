@@ -49,8 +49,8 @@ EXAMPLES = {0: "Write a concise bulleted list of key controls based on the provi
             14: "If this process had an animal mascot, what would it be and why? Use emojis.",
             15: "What overrides or circumvention methods are mentioned in the documents?",
             16: "What is the most frequent term used on each page of the document?"}
-EXAMPLE_FILES = ["/examples/P2P Common Key Controls.pdf",
-                 "/examples/Cornell Purchase Order Process Narrative.pdf"]
+EXAMPLE_FILES = ["examples/P2P Common Key Controls.pdf",
+                 "examples/Cornell Purchase Order Process Narrative.pdf"]
 
 # HELPERS
 
@@ -85,7 +85,7 @@ def list_blobs(username):
 def clone_example_blobs(username):
     for ex in EXAMPLE_FILES:
         source_blob = BUCKET.blob(ex)
-        destination_blob = BUCKET.blob(username + ex.split('/')[-1])
+        destination_blob = BUCKET.blob(username + '/' + ex.split('/')[-1])
         destination_blob.rewrite(source_blob)
 
 
