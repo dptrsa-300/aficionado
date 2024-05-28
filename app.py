@@ -85,7 +85,7 @@ def list_blobs(username):
 def clone_example_blobs(username):
     for ex in EXAMPLE_FILES:
         source_blob = BUCKET.blob(ex)
-        destination_blob = BUCKET.blob(username + '/' + ex.split('/')[-1])
+        destination_blob = BUCKET.blob(username + ex.split('/')[-1])
         destination_blob.rewrite(source_blob)
 
 
