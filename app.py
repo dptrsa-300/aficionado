@@ -7,6 +7,7 @@ from google.cloud import storage
 import vertexai
 import json
 import random
+from datetime import datetime
 
 # AUTHENTICATION FALLBACK
 
@@ -151,13 +152,19 @@ if st.button(label='**Submit**'):
 
 if st.session_state['response'] != "":
     with st.container(border=True):
-        st.write(st.session_state['response'].replace('$', '\$'))
+        model_response = st.session_state['response'].replace('$', '\$')
+        st.write(model_response)
         st.write('\n')
         col_dl_btns1, col_dl_btns2 = st.columns(2)
         with col_dl_btns1:
-            tmp = st.button(label='**Save to Workspace**', use_container_width=True)
+            if st.button(label='**Save to Workspace**', use_container_width=True):
+                test = call_cloud_function({"name": st.session_state['username'], 
+                                            'key': st.secrets['GCF_API_KEY'], 
+                                            'task': f"Produce a short filename for a file that contains this: {model_response}"
+                                           }, st.secrets['GCF_ENDPOINTS']['call_model'])
+                st.write(f'{datetime.now().strftime("%Y-%m-%d %H:%M")} {test}')
         with col_dl_btns2:
-            st.download_button("**Download**", st.session_state['response'], use_container_width=True)
+            st.download_button("**Download**", model_response, use_container_width=True)
             
 # SIDEBAR FLOW
 
