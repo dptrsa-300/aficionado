@@ -155,14 +155,22 @@ if st.session_state['response'] != "":
         model_response = st.session_state['response'].replace('$', '\$')
         st.write(model_response)
         st.write('\n')
+        
         col_dl_btns1, col_dl_btns2 = st.columns(2)
+        
         with col_dl_btns1:
             if st.button(label='**Save to Workspace**', use_container_width=True):
                 test = call_cloud_function({"name": st.session_state['username'], 
                                             'key': st.secrets['GCF_API_KEY'], 
                                             'task': f"Produce a short filename without extension for a file that contains this: {model_response}"
                                            }, st.secrets['GCF_ENDPOINTS']['call_model'])
-                st.write(f'{datetime.now().strftime("%Y-%m-%d %H:%M")} {test}')
+                filename = f'{datetime.now().strftime("%Y-%m-%d %H:%M")} {test}.txt'
+                with open(filename, 'w') as f:
+                    f.write(model_response)
+                upload_blob(filename, st.session_state['username'])
+                workspace_files([filename])
+                st.rerun()
+                
         with col_dl_btns2:
             st.download_button("**Download**", model_response, use_container_width=True)
             
@@ -174,7 +182,7 @@ with st.sidebar:
         uploaded_files = st.file_uploader(label='Upload Relevant Documents',
                                         label_visibility ='collapsed',
                                         accept_multiple_files=True,
-                                        type=['pdf', 'csv'])
+                                        type=['pdf', 'csv', 'txt'])
     for i in uploaded_files:
         with open(i.name, 'wb') as f:
             f.write(i.getvalue())
