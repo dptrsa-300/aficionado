@@ -160,7 +160,7 @@ if st.session_state['response'] != "":
             if st.button(label='**Save to Workspace**', use_container_width=True):
                 test = call_cloud_function({"name": st.session_state['username'], 
                                             'key': st.secrets['GCF_API_KEY'], 
-                                            'task': f"Produce a short filename for a file that contains this: {model_response}"
+                                            'task': f"Produce a short filename without extension for a file that contains this: {model_response}"
                                            }, st.secrets['GCF_ENDPOINTS']['call_model'])
                 st.write(f'{datetime.now().strftime("%Y-%m-%d %H:%M")} {test}')
         with col_dl_btns2:
