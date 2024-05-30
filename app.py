@@ -26,6 +26,7 @@ from datetime import datetime
 # - Save to Workspace for response
 # - Consistent animal emojis per file per user session
 # - System instructions recitation check on GCF endpoint
+# - Model call to generate filename for reponse Save to Workspace sometimes produces illegal chars. ex.: \n
 
 # GLOBALS
 
