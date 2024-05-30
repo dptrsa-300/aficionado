@@ -215,15 +215,7 @@ with st.sidebar:
         clone_example_blobs(st.session_state['username'])
         st.rerun()
     
-    
-        
-        
 st.write('\n\n')
 
 with st.expander(label='Privacy Policy'):
     components.html(open('pages/privacy.html', 'r').read(), height=500, scrolling=True)
-
-    
-
-## add popover privacy policy
-
