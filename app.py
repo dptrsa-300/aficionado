@@ -124,7 +124,7 @@ def question(text):
 st.set_page_config(page_title='Aficionado: Your Always-On Audit Assistant',
                    page_icon='assure_ai_logo.PNG')
 
-st.write('**This application is running on a <span style="color:red;">public cloud</span>. <span style="color:red;">Do not upload sensitive information</span> to your workspace.**', unsafe_allow_html=True)
+st.write('**This application is running on a <span style="color:red;">public cloud</span>.\n<span style="color:red;">Do not upload sensitive information</span> to your workspace.**', unsafe_allow_html=True)
 st.write('<h1>Hello, Audit <span style="color:#ce00a2ff;">Aficionado</span></h1>', unsafe_allow_html=True)
 st.write(f'Logged in as <span style="background-color:#fff727ff;"> **{st.session_state["username"]}** </span>', unsafe_allow_html=True)
 
