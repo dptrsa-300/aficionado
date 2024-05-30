@@ -11,9 +11,7 @@ from datetime import datetime
 
 # AUTHENTICATION FALLBACK
 
-if not st.experimental_user:
-    st.write('**UNAUTHENTICATED**')
-    st.stop()
+st.write(st.experimental_user)
 
 # - Maybe also move EXAMPLES to st.secrets?
 # - Maybe daily (12-hour? 1-hour?) cache for the same user, workspace file set + question?
