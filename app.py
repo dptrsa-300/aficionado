@@ -12,7 +12,7 @@ from datetime import datetime
 # AUTHENTICATION FALLBACK
 
 if st.experimental_user['email'] is None:
-    st.write('<h1>Hello, Audit <span style="color:#ce00a2ff;">Aficionado</span></h1>')
+    st.write('<h1>Hello, Audit <span style="color:#ce00a2ff;">Aficionado</span></h1>', unsafe_allow_html=True)
     st.write("It looks like you don't have access yet.")
     st.write("To get access to Aficionado's audit assistant that helps you write controls, audit procedures and answers questions - all based on the narratives and contextually relevant documents you provide, request access here.")
     st.stop()
