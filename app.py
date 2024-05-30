@@ -10,7 +10,7 @@ import random
 from datetime import datetime
 
 # AUTHENTICATION FALLBACK
-
+st.write(st.experimental_user['email'])
 if st.experimental_user['email'] is None:
     st.write('<h1>Hello, Audit <span style="color:#ce00a2ff;">Aficionado</span></h1>', unsafe_allow_html=True)
     st.write("It looks like you don't have access yet.")
