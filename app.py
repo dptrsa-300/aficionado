@@ -11,8 +11,11 @@ from datetime import datetime
 
 # AUTHENTICATION FALLBACK
 
-st.write(st.experimental_user)
-
+if st.experimental_user['email'] is None:
+    st.write('<h1>Hello, Audit <span style="color:#ce00a2ff;">Aficionado</span></h1>')
+    st.write("It looks like you don't have access yet.")
+    st.write("To get access to Aficionado's audit assistant that helps you write controls, audit procedures and answers questions - all based on the narratives and contextually relevant documents you provide, request access here.")
+    st.stop()
 # - Maybe also move EXAMPLES to st.secrets?
 # - Maybe daily (12-hour? 1-hour?) cache for the same user, workspace file set + question?
 # - Ability to delete individual workspace files
