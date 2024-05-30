@@ -203,6 +203,9 @@ with st.sidebar:
     if st.button(label='**Clone Example Files into Workspace**', use_container_width=True, on_click=workspace_files(EXAMPLE_FILES)):
         clone_example_blobs(st.session_state['username'])
         st.rerun()
+    
+    if st.button(label='**Download Workspace Files**', use_container_width=True):
+        continue
         
 st.write('\n\n')
 
