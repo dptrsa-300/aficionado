@@ -196,6 +196,8 @@ with st.sidebar:
         for f in list_blobs(st.session_state['username']):
             st.markdown(f'##### {EMOJIS[random.randint(1481, 1526)]} {f}\n')
     
+    tmp = st.button(label='**Download Workspace Files**', use_container_width=True)
+
     if st.button(label='**Delete Workspace Files**', use_container_width=True, on_click=workspace_files([])):
         delete_all_blobs(st.session_state['username'])
         st.rerun()
@@ -204,8 +206,8 @@ with st.sidebar:
         clone_example_blobs(st.session_state['username'])
         st.rerun()
     
-    if st.button(label='**Download Workspace Files**', use_container_width=True):
-        continue
+    
+        
         
 st.write('\n\n')
 
