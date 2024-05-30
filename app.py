@@ -23,10 +23,11 @@ from datetime import datetime
 # - Maybe also move EXAMPLES to st.secrets?
 # - Maybe daily (12-hour? 1-hour?) cache for the same user, workspace file set + question?
 # - Ability to delete individual workspace files
-# - Save to Workspace for response
+# - Ability to view, preview and/or download workspace files
 # - Consistent animal emojis per file per user session
 # - System instructions recitation check on GCF endpoint
 # - Model call to generate filename for reponse Save to Workspace sometimes produces illegal chars. ex.: \n
+# - Add Google OAuth flow and new user signup flow. Then make app public
 
 # GLOBALS
 
