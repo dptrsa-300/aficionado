@@ -10,12 +10,16 @@ import random
 from datetime import datetime
 
 # AUTHENTICATION FALLBACK
-st.write(st.experimental_user['email'])
-if st.experimental_user['email'] == None:
-    st.write('<h1>Hello, Audit <span style="color:#ce00a2ff;">Aficionado</span></h1>', unsafe_allow_html=True)
-    st.write("It looks like you don't have access yet.")
-    st.write("To get access to Aficionado's audit assistant that helps you write controls, audit procedures, reviews your RACMs & audit documentation, **AND** answers questions - all based on the narratives and contextually relevant documents you provide (phew, that was a lot), request access [here](https://forms.gle/jHPByXgVFBVxNq3H7).")
-    st.stop()
+
+#st.write(st.experimental_user["email"])
+#if st.experimental_user["email"] == None:
+#    st.write('<h1>Hello, Audit <span style="color:#ce00a2ff;">Aficionado</span></h1>', unsafe_allow_html=True)
+#    st.write("It looks like you don't have access yet.")
+#    st.write("To get access to Aficionado's audit assistant that helps you write controls, audit procedures, reviews your RACMs & audit documentation, **AND** answers questions - all based on the narratives and contextually relevant documents you provide (phew, that was a lot), request access [here](https://forms.gle/jHPByXgVFBVxNq3H7).")
+#    st.stop()
+
+# TODOs
+
 # - Maybe also move EXAMPLES to st.secrets?
 # - Maybe daily (12-hour? 1-hour?) cache for the same user, workspace file set + question?
 # - Ability to delete individual workspace files
