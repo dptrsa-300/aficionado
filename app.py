@@ -184,7 +184,7 @@ if st.session_state['response'] != "":
 
 with st.sidebar:
     with st.container(border=True):
-        st.write('**Desktop Files**\n\nUpload files from your computer here. They will not be moved to your workspace until you click **Send to Workspace** below.')
+        st.write('**Desktop Files**\n\nUpload files from your computer here. They will not be moved to your workspace until you click **Save to Workspace** below.')
         uploaded_files = st.file_uploader(label='Upload Relevant Documents',
                                         label_visibility ='collapsed',
                                         accept_multiple_files=True,
