@@ -28,6 +28,7 @@ from datetime import datetime
 # - System instructions recitation check on GCF endpoint
 # - Model call to generate filename for reponse Save to Workspace sometimes produces illegal chars. ex.: \n
 # - Add Google OAuth flow and new user signup flow. Then make app public
+#   - DONE: Submitted OAuth scope for Google approval on May 30, 2024
 
 # GLOBALS
 
