@@ -98,6 +98,10 @@ def clone_example_blobs(username):
         destination_blob.rewrite(source_blob)
 
 
+st.write('Hello user!')
+
+'''
+
 # SESSION STATE
 
 if 'username' not in st.session_state:
@@ -216,6 +220,8 @@ with st.sidebar:
         st.rerun()
     
 st.write('\n\n')
+
+'''
 
 with st.expander(label='Privacy Policy'):
     components.html(open('pages/privacy.html', 'r').read(), height=500, scrolling=True)
