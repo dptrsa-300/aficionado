@@ -98,6 +98,8 @@ def clone_example_blobs(username):
         destination_blob.rewrite(source_blob)
 
 
+st.write('<head><meta name="google-site-verification" content="SJToWvx4TdoBNrWLzS5dI6B7Op8PV5vWlN7jiGpFalg" /></head>', unsafe_allow_html=True)
+
 st.write('Hello user!')
 
 hide = '''
