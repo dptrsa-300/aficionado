@@ -100,7 +100,7 @@ def clone_example_blobs(username):
 
 st.write('Hello user!')
 
-'''
+hide = '''
 
 # SESSION STATE
 
