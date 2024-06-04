@@ -1,3 +1,5 @@
 google
 vertexai
 google-auth-oauthlib
+googleapiclient
+webbrowser
