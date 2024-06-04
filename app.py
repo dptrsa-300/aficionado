@@ -110,7 +110,7 @@ client_id = st.secrets["OAUTH_CREDENTIALS"]["client_id"]
 client_secret = st.secrets["OAUTH_CREDENTIALS"]["client_secret"]
 scopes = ['email']
 redirect_uri = 'https://aficionado.streamlit.app/'
-flow = Flow.from_client_config(st.secrets['OAUTH_CREDENTIALS'],
+flow = Flow.from_client_config({'web': st.secrets['OAUTH_CREDENTIALS']},
                                scopes=scopes,
                                redirect_uri=redirect_uri)
 
