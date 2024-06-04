@@ -116,6 +116,7 @@ flow = Flow.from_client_config({'web': st.secrets['OAUTH_CREDENTIALS']},
 
 if st.button('Login'):
     authorization_url, state = flow.authorization_url(prompt='consent')
+    st.write(authorization_url, state)
     st.session_state.state = state
     #st.redirect(authorization_url)
 
