@@ -106,15 +106,12 @@ st.write('<head><meta name="google-site-verification" content="SJToWvx4TdoBNrWLz
 
 st.write('Hello user!')
 
-with open('config.yaml') as file:
-    config = yaml.load(file, Loader=SafeLoader)
-
 authenticator = stauth.Authenticate(
-    config['credentials'],
-    config['cookie']['name'],
-    config['cookie']['key'],
-    config['cookie']['expiry_days'],
-    config['pre-authorized']
+    dict(st.secrets['credentials']),
+    st.secrets['cookie']['name'],
+    st.secrets['cookie']['key'],
+    st.secrets['cookie']['expiry_days'],
+    st.secrets['preauthorized']
 )
 
 creds = authenticator.login()
