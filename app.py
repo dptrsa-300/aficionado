@@ -128,6 +128,8 @@ if 'code' in st.session_state and 'state' in st.session_state:
     st.session_state.credentials = flow.credentials
     st.write('Successfully authenticated!')
 
+st.write(st.session_state.credentials)
+
 hide = '''
 
 # SESSION STATE
