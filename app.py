@@ -118,7 +118,8 @@ st.write('<head><meta name="google-site-verification" content="SJToWvx4TdoBNrWLz
 with st.container(border=True):
     enc_email = encrypt(st.text_input(label='Email Address').encode(encoding="utf-8"))
     enc_pwd = encrypt(st.text_input(label='Password', type='password').encode(encoding="utf-8"))
-    st.button(label='Login')
+    if st.button(label='Login'):
+        st.write('TODO: authenticate')
 
 hide = '''
 
