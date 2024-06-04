@@ -11,6 +11,7 @@ from datetime import datetime
 
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.asymmetric import rsa, padding
+from cryptography.hazmat.primitives import serialization
 
 # AUTHENTICATION FALLBACK
 
