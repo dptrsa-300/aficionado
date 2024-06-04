@@ -119,7 +119,7 @@ if 'credentials' not in st.session_state:
 
 if st.button('Login'):
     authorization_url, state = flow.authorization_url(prompt='consent')
-    st.markdown(f'<a href="{authorization_url}" target="_self">Click to Authenticate</a>', unsafe_allow_html=True)
+    st.write(authorization_url)
     st.session_state.state = state
 
 if 'code' in st.session_state and 'state' in st.session_state:
