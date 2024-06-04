@@ -9,6 +9,10 @@ import json
 import random
 from datetime import datetime
 
+# https://discuss.streamlit.io/t/adding-sso-on-streamlit-app/45718
+from google.oauth2 import id_token
+from google_auth_oauthlib.flow import Flow
+
 # AUTHENTICATION FALLBACK
 
 #st.write(st.experimental_user["email"])
@@ -101,6 +105,19 @@ def clone_example_blobs(username):
 st.write('<head><meta name="google-site-verification" content="SJToWvx4TdoBNrWLzS5dI6B7Op8PV5vWlN7jiGpFalg" /></head>', unsafe_allow_html=True)
 
 st.write('Hello user!')
+
+client_id = st.secrets["OAUTH_CREDENTIALS"]["client_id"]
+client_secret = st.secrets["OAUTH_CREDENTIALS"]["client_secret"]
+scopes = ['email']
+redirect_uri = 'https://aficionado.streamlit.app/'
+flow = Flow.from_client_config(st.secrets['OAUTH_CREDENTIALS'],
+                               scopes=scopes,
+                               redirect_uri=redirect_uri)
+
+if st.button('Login'):
+    authorization_url, state = flow.authorization_url(prompt='consent')
+    st.session_state.state = state
+    st.redirect(authorization_url)
 
 hide = '''
 
