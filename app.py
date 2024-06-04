@@ -115,13 +115,10 @@ def encrypt(message):
 
 st.write('<head><meta name="google-site-verification" content="SJToWvx4TdoBNrWLzS5dI6B7Op8PV5vWlN7jiGpFalg" /></head>', unsafe_allow_html=True)
 
-st.write('Hello user!')
-
-enc_email = encrypt(st.text_input(label='Email Address').encode(encoding="utf-8"))
-enc_pwd = encrypt(st.text_input(label='Password', type='password').encode(encoding="utf-8"))
-
-if st.button(label='Login'):
-    st.write([enc_email, enc_pwd])
+with st.container(border=True):
+    enc_email = encrypt(st.text_input(label='Email Address').encode(encoding="utf-8"))
+    enc_pwd = encrypt(st.text_input(label='Password', type='password').encode(encoding="utf-8"))
+    st.button(label='Login')
 
 hide = '''
 
