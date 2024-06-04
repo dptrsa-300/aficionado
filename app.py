@@ -9,6 +9,10 @@ import json
 import random
 from datetime import datetime
 
+import streamlit_authenticator as stauth
+import yaml
+from yaml.loader import SafeLoader
+
 # AUTHENTICATION FALLBACK
 
 #st.write(st.experimental_user["email"])
@@ -101,6 +105,21 @@ def clone_example_blobs(username):
 st.write('<head><meta name="google-site-verification" content="SJToWvx4TdoBNrWLzS5dI6B7Op8PV5vWlN7jiGpFalg" /></head>', unsafe_allow_html=True)
 
 st.write('Hello user!')
+
+with open('config.yaml') as file:
+    config = yaml.load(file, Loader=SafeLoader)
+
+authenticator = stauth.Authenticate(
+    config['credentials'],
+    config['cookie']['name'],
+    config['cookie']['key'],
+    config['cookie']['expiry_days'],
+    config['pre-authorized']
+)
+
+authenticator.login()
+
+st.write(st.session_state["name"], st.session_state["authentication_status"], st.session_state["username"])
 
 hide = '''
 

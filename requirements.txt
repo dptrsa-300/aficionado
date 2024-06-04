@@ -1,2 +1,4 @@
 google
 vertexai
+streamlit-authenticator
+pyyaml
