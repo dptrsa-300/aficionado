@@ -116,7 +116,7 @@ st.write('<head><meta name="google-site-verification" content="SJToWvx4TdoBNrWLz
 
 st.write('Hello user!')
 
-st.write(st.secrets['AFC_AUTH_KEY'])
+st.write(st.secrets["AFC_AUTH_KEY"])
 
 hide = '''
 
