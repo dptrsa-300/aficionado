@@ -9,6 +9,9 @@ import json
 import random
 from datetime import datetime
 
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.asymmetric import rsa, padding
+
 # AUTHENTICATION FALLBACK
 
 #st.write(st.experimental_user["email"])
@@ -98,11 +101,22 @@ def clone_example_blobs(username):
         destination_blob.rewrite(source_blob)
 
 
+def encrypt(message):
+    public_key = serialization.load_ssh_public_key(bytes(st.secrets['AFC_AUTH_KEY']))
+    return public_key.encrypt(
+        message,
+        padding.OAEP(
+            mgf=padding.MGF1(algorithm=hashes.SHA256()),
+            algorithm=hashes.SHA256(),
+            label=None
+        )
+    )
+
 st.write('<head><meta name="google-site-verification" content="SJToWvx4TdoBNrWLzS5dI6B7Op8PV5vWlN7jiGpFalg" /></head>', unsafe_allow_html=True)
 
 st.write('Hello user!')
 
-
+st.write(encrypt(b"Hello World!"))
 
 hide = '''
 
