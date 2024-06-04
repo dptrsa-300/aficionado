@@ -103,7 +103,7 @@ def clone_example_blobs(username):
 
 
 def encrypt(message):
-    public_key = serialization.load_ssh_public_key(bytes(st.secrets['AFC_AUTH_KEY']))
+    public_key = serialization.load_ssh_public_key(st.secrets['AFC_AUTH_KEY'].encode(encoding="utf-8"))
     return public_key.encrypt(
         message,
         padding.OAEP(
