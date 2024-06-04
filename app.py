@@ -114,11 +114,19 @@ flow = Flow.from_client_config({'web': st.secrets['OAUTH_CREDENTIALS']},
                                scopes=scopes,
                                redirect_uri=redirect_uri)
 
+if 'credentials' not in st.session_state:
+    st.session_state.credentials = None
+
 if st.button('Login'):
     authorization_url, state = flow.authorization_url(prompt='consent')
-    st.write(authorization_url, state)
+    st.markdown(f'<a href="{authorization_url}" target="_self">Click to Authenticate</a>', unsafe_allow_html=True)
     st.session_state.state = state
-    #st.redirect(authorization_url)
+
+if 'code' in st.session_state and 'state' in st.session_state:
+    flow.fetch_token(authorization_response=st.session_state.code)
+    assert st.session_state.state == st.session_state.token_response.get('state')
+    st.session_state.credentials = flow.credentials
+    st.write('Successfully authenticated!')
 
 hide = '''
 
