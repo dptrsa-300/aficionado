@@ -9,10 +9,6 @@ import json
 import random
 from datetime import datetime
 
-import streamlit_authenticator as stauth
-import yaml
-from yaml.loader import SafeLoader
-
 # AUTHENTICATION FALLBACK
 
 #st.write(st.experimental_user["email"])
@@ -106,17 +102,7 @@ st.write('<head><meta name="google-site-verification" content="SJToWvx4TdoBNrWLz
 
 st.write('Hello user!')
 
-authenticator = stauth.Authenticate(
-    st.secrets['credentials'].to_dict(),
-    st.secrets['cookie']['name'],
-    st.secrets['cookie']['key'],
-    st.secrets['cookie']['expiry_days'],
-    st.secrets['preauthorized']
-)
 
-creds = authenticator.login()
-
-st.write(creds)
 
 hide = '''
 
