@@ -117,7 +117,11 @@ st.write('<head><meta name="google-site-verification" content="SJToWvx4TdoBNrWLz
 
 st.write('Hello user!')
 
-st.write(encrypt(b"Hello World!"))
+enc_email = encrypt(st.text_input(label='Email Address').encode(encoding="utf-8"))
+enc_pwd = encrypt(st.text_input(label='Password', type='password').encode(encoding="utf-8"))
+
+if st.button(label='Login'):
+    st.write([enc_email, enc_pwd])
 
 hide = '''
 
