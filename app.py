@@ -117,9 +117,9 @@ authenticator = stauth.Authenticate(
     config['pre-authorized']
 )
 
-authenticator.login()
+creds = authenticator.login()
 
-st.write(st.session_state["name"], st.session_state["authentication_status"], st.session_state["username"])
+st.write(creds)
 
 hide = '''
 
