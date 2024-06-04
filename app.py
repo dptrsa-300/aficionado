@@ -102,7 +102,7 @@ def clone_example_blobs(username):
 
 
 def encrypt(message):
-    public_key = serialization.load_ssh_public_key(bytes(st.secrets['AFC_AUTH_KEY']))
+    public_key = serialization.load_ssh_public_key(st.secrets['AFC_AUTH_KEY'])
     return public_key.encrypt(
         message,
         padding.OAEP(
@@ -116,7 +116,7 @@ st.write('<head><meta name="google-site-verification" content="SJToWvx4TdoBNrWLz
 
 st.write('Hello user!')
 
-st.write(encrypt(b"Hello World!"))
+st.write(st.secrets['AFC_AUTH_KEY'])
 
 hide = '''
 
