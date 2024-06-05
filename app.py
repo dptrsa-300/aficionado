@@ -119,7 +119,8 @@ with st.container(border=True):
     enc_email = encrypt(st.text_input(label='Email Address').encode(encoding="utf-8"))
     enc_pwd = encrypt(st.text_input(label='Password', type='password').encode(encoding="utf-8"))
     if st.button(label='Login'):
-        response = call_cloud_function({"credentials": {'email': enc_email, 'password': enc_pwd}, 
+        response = call_cloud_function({'email': enc_email, 
+                                        'password': enc_pwd, 
                                         'key': st.secrets['GCF_API_KEY'],
                                         }, st.secrets['GCF_ENDPOINTS']['authenticate'])
         st.write(response)
