@@ -8,6 +8,7 @@ import vertexai
 import json
 import random
 from datetime import datetime
+import base64
 
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.asymmetric import rsa, padding
