@@ -122,7 +122,7 @@ with st.container(border=True):
         response = call_cloud_function({"credentials": {'email': enc_email, 'password': enc_pwd}, 
                                         'key': st.secrets['GCF_API_KEY'],
                                         }, st.secrets['GCF_ENDPOINTS']['authenticate'])
-        st.write(reponse)
+        st.write(response)
 
 hide = '''
 
