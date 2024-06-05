@@ -117,8 +117,8 @@ def encrypt(message):
 st.write('<head><meta name="google-site-verification" content="SJToWvx4TdoBNrWLzS5dI6B7Op8PV5vWlN7jiGpFalg" /></head>', unsafe_allow_html=True)
 
 with st.container(border=True):
-    enc_email = base64.b64encode(encrypt(st.text_input(label='Email Address').encode(encoding="utf-8"))).decode("utf-8")
-    enc_pwd = base64.b64encode(encrypt(st.text_input(label='Password', type='password').encode(encoding="utf-8"))).decode("utf-8")
+    enc_email = encrypt(st.text_input(label='Email Address').encode(encoding="utf-8"))
+    enc_pwd = encrypt(st.text_input(label='Password', type='password').encode(encoding="utf-8"))
     if st.button(label='Login'):
         response = call_cloud_function({'email': enc_email, 
                                         'password': enc_pwd, 
