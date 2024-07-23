@@ -123,6 +123,8 @@ with st.container(border=True):
     enc_email = encrypt(user_email.encode(encoding="utf-8"))
     enc_pwd = encrypt(user_pwd.encode(encoding="utf-8"))
 
+    st.write(enc_email)
+
     if st.button(label='Login'):
         response = call_cloud_function({'email': enc_email, 
                                         'password': enc_pwd, 
