@@ -117,12 +117,15 @@ def encrypt(message):
 st.write('<head><meta name="google-site-verification" content="SJToWvx4TdoBNrWLzS5dI6B7Op8PV5vWlN7jiGpFalg" /></head>', unsafe_allow_html=True)
 
 with st.container(border=True):
-    enc_email = st.text_input(label='Email Address')
-    enc_pwd = st.text_input(label='Password', type='password')
+    user_email = st.text_input(label='Email Address')
+    user_pwd = st.text_input(label='Password', type='password')
+
+    enc_email = encrypt(user_email.encode(encoding="utf-8"))
+    enc_pwd = encrypt(user_pwd.encode(encoding="utf-8"))
 
     if st.button(label='Login'):
-        response = call_cloud_function({'email': encrypt(enc_email.encode(encoding="utf-8")), 
-                                        'password': encrypt(enc_pwd.encode(encoding="utf-8")), 
+        response = call_cloud_function({'email': enc_email, 
+                                        'password': enc_pwd, 
                                         'key': st.secrets['GCF_API_KEY'],
                                         }, st.secrets['GCF_ENDPOINTS']['authenticate'])
         st.write(response)
