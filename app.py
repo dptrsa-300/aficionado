@@ -116,6 +116,8 @@ def encrypt(message):
 
 st.write('<head><meta name="google-site-verification" content="SJToWvx4TdoBNrWLzS5dI6B7Op8PV5vWlN7jiGpFalg" /></head>', unsafe_allow_html=True)
 
+hide = '''
+
 with st.container(border=True):
     user_email = st.text_input(label='Email Address')
     user_pwd = st.text_input(label='Password', type='password')
@@ -131,8 +133,7 @@ with st.container(border=True):
                                         'key': st.secrets['GCF_API_KEY'],
                                         }, st.secrets['GCF_ENDPOINTS']['authenticate'])
         st.write(response)
-
-hide = '''
+'''
 
 # SESSION STATE
 
@@ -253,7 +254,6 @@ with st.sidebar:
     
 st.write('\n\n')
 
-'''
 
 with st.expander(label='Privacy Policy'):
     components.html(open('pages/privacy.html', 'r').read(), height=500, scrolling=True)
