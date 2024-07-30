@@ -138,7 +138,8 @@ with st.container(border=True):
 # SESSION STATE
 
 if 'username' not in st.session_state:
-    st.session_state['username'] = st.experimental_user["email"].split('@')[0]
+    # st.session_state['username'] = st.experimental_user["email"].split('@')[0]
+    st.session_state['username'] = 'danie.theron'
 if 'workspace_files' not in st.session_state:
     st.session_state['workspace_files'] = list_blobs(st.session_state['username'])
 if 'choices' not in st.session_state:
