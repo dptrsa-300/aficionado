@@ -41,7 +41,7 @@ vertexai.init(project=st.secrets['GCP_GLOBALS']['project'],
               location=st.secrets['GCP_GLOBALS']['location'],
               credentials=service_account.Credentials.from_service_account_info(st.secrets["GOOGLE_APPLICATION_CREDENTIALS"]))
 
-STORAGE_CLIENT = storage.Client()
+STORAGE_CLIENT = storage.Client(project=st.secrets['GCP_GLOBALS']['project'])
 BUCKET = STORAGE_CLIENT.bucket(st.secrets['GCP_GLOBALS']['bucket_name'])
 
 EMOJIS = {1481: ':crab:',1482: ':lion_face:',1483: ':scorpion:',1484: ':turkey:',1485: ':unicorn_face:',1486: ':eagle:',1487: ':duck:',1488: ':bat:',1489: ':shark:',1490: ':owl:',1491: ':fox_face:',1492: ':butterfly:',1493: ':deer:',1494: ':gorilla:',1495: ':lizard:',1496: ':rhinoceros:',1497: ':shrimp:',1498: ':squid:',1499: ':giraffe_face:',1500: ':zebra_face:',1501: ':hedgehog:',1502: ':sauropod:',1503: ':t-rex:',1504: ':cricket:',1505: ':kangaroo:',1506: ':llama:',1507: ':peacock:',1508: ':hippopotamus:',1509: ':parrot:',1510: ':raccoon:',1511: ':lobster:',1512: ':mosquito:',1513: ':microbe:',1514: ':badger:',1515: ':swan:',1516: ':mammoth:',1517: ':dodo:',1518: ':sloth:',1519: ':otter:',1520: ':orangutan:',1521: ':skunk:',1522: ':flamingo:',1523: ':oyster:',1524: ':beaver:',1525: ':bison:',1526: ':seal:',1527: ':guide_dog:'}
